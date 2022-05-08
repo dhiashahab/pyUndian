@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import PhotoImage, ttk
 from tkinter import filedialog as fd
 from tkinter import messagebox
 from random import randint
@@ -8,16 +8,20 @@ from random import randint
 root = tk.Tk()
 root.title('Undian Doorprize')
 root.resizable(1, 0)
-root.geometry('600x455')
+root.geometry('600x640')
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
 
+gambarbannertop = PhotoImage(file="banner-top.png")
+labelbannertop = ttk.Label(root, image=gambarbannertop)
+labelbannertop.grid(column=0, row=0, sticky=tk.NS, padx=5, pady=5, columnspan=2)
+
 label1 = ttk.Label(root, text="Daftar Peserta Undian:")
-label1.grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
+label1.grid(column=0, row=1, sticky=tk.W, padx=5, pady=5)
 
 label2 = ttk.Label(root, text="Peserta Yang Beruntung:")
-label2.grid(column=1, row=0, sticky=tk.W, padx=5, pady=5)
+label2.grid(column=1, row=1, sticky=tk.W, padx=5, pady=5)
 
 
 # membuat scrolled text editor untuk daftar peserta undian
@@ -34,7 +38,7 @@ text_peserta.grid(row=0, column=0, sticky="nsew")
 textVsb1.grid(row=0, column=1, sticky="ns")
 textHsb1.grid(row=1, column=0, sticky="ew")
 
-textContainer1.grid(column=0, row=1, sticky="ew", padx=5, pady=5)
+textContainer1.grid(column=0, row=2, sticky="ew", padx=5, pady=5)
 
 
 # membuat scrolled text editor untuk daftar yang dapat undian
@@ -52,7 +56,7 @@ text_dapatdoorprize.grid(row=0, column=0, sticky="nsew")
 textVsb2.grid(row=0, column=1, sticky="ns")
 textHsb2.grid(row=1, column=0, sticky="ew")
 
-textContainer2.grid(column=1, row=1, sticky="ew", padx=5, pady=5)
+textContainer2.grid(column=1, row=2, sticky="ew", padx=5, pady=5)
 
 
 # fungsi untuk menampilkan dialog open, lalu membuka file tsb
@@ -119,7 +123,7 @@ open_button = ttk.Button(
     text='Buka File',
     command=open_text_file
 )
-open_button.grid(column=0, row=2, sticky=tk.E, padx=10, pady=10)
+open_button.grid(column=0, row=3, sticky=tk.E, padx=10, pady=10)
 
 # membuat undi button
 undi_button = ttk.Button(
@@ -127,7 +131,7 @@ undi_button = ttk.Button(
     text='Undi 1 Nama',
     command=undian
 )
-undi_button.grid(column=1, row=2, sticky=tk.W, padx=10, pady=10)
+undi_button.grid(column=1, row=3, sticky=tk.W, padx=10, pady=10)
 
 # membuat save file button
 save_button = ttk.Button(
@@ -135,7 +139,7 @@ save_button = ttk.Button(
     text='Simpan File',
     command=save_text_file
 )
-save_button.grid(column=1, row=2, sticky=tk.E, padx=10, pady=10)
+save_button.grid(column=1, row=3, sticky=tk.E, padx=10, pady=10)
 
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop()
