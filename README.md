@@ -3,7 +3,7 @@ Software undian pyUndian merupakan aplikasi desktop yang dapat digunakan untuk m
 Sotware ini dibuat sebagai final project dalam pelatihan Python yang diadakan oleh Kominfo pada Digital Talent Scholarship 2022.  
 
 kontributor: 
- - https://github.com/dhiashahab
+ - <a hef="https://github.com/dhiashahab">dhiashahab</a>
  - Khairul Anas
  - Kushartono
  - Liustony
