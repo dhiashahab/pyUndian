@@ -7,15 +7,16 @@ from random import randint
 # Root window
 root = tk.Tk()
 root.title('Undian Doorprize')
-root.resizable(1, 0)
+root.resizable(1, 1)
 root.geometry('600x640')
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
+root.rowconfigure(2, weight=1)
 
 gambarbannertop = PhotoImage(file="banner-top.png")
 labelbannertop = ttk.Label(root, image=gambarbannertop)
-labelbannertop.grid(column=0, row=0, sticky=tk.NS, padx=5, pady=5, columnspan=2)
+labelbannertop.grid(column=0, row=0, sticky="ns", padx=5, pady=5, columnspan=2)
 
 label1 = ttk.Label(root, text="Daftar Peserta Undian:")
 label1.grid(column=0, row=1, sticky=tk.W, padx=5, pady=5)
@@ -38,7 +39,7 @@ text_peserta.grid(row=0, column=0, sticky="nsew")
 textVsb1.grid(row=0, column=1, sticky="ns")
 textHsb1.grid(row=1, column=0, sticky="ew")
 
-textContainer1.grid(column=0, row=2, sticky="ew", padx=5, pady=5)
+textContainer1.grid(column=0, row=2, sticky="nsew", padx=5, pady=5)
 
 
 # membuat scrolled text editor untuk daftar yang dapat undian
@@ -56,7 +57,7 @@ text_dapatdoorprize.grid(row=0, column=0, sticky="nsew")
 textVsb2.grid(row=0, column=1, sticky="ns")
 textHsb2.grid(row=1, column=0, sticky="ew")
 
-textContainer2.grid(column=1, row=2, sticky="ew", padx=5, pady=5)
+textContainer2.grid(column=1, row=2, sticky="nsew", padx=5, pady=5)
 
 
 # fungsi untuk menampilkan dialog open, lalu membuka file tsb
@@ -77,7 +78,8 @@ def open_text_file():
         text_peserta.insert('end',file_cont)
 
     except UnicodeDecodeError:
-        messagebox.showinfo('Perhatian !!!', 'File ' + filename + ' tidak dapat dibuka.\nSilahkan untuk menggunakan file text (.txt).')
+        messagebox.showinfo('Perhatian !!!', 'File ' + filename + 
+            ' tidak dapat dibuka.\nSilahkan untuk menggunakan file text (.txt).')
 
 
 # fungsi untuk menampilkan dialog save, lalu membuka file tsb
@@ -104,7 +106,6 @@ def undian():
     end_index = str(rand_line) + '.end'
     dapat_undian = text_peserta.get(start_index , end_index )
     if dapat_undian != '':
-      #print(dapat_undian)
       tk.messagebox.showinfo('Informasi', 'Selamat untuk:\n' + dapat_undian)
       text_dapatdoorprize.insert('end', dapat_undian + '\n')  
   
